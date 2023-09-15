@@ -2,8 +2,7 @@
 .DS_store
 
 # Ignore node_modules folder
-/backend/node_modules/
-/frontend/node_modules/
+**/node_modules/
 
 # Ignore all text files
 *.txt
