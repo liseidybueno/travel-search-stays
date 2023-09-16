@@ -1,1 +1,130 @@
+/** ROOT STYLES **/
+:root {
+  --dark-purple: #312244;
+  --medium-purple: #3e1f47;
+  --light-purple: #4d194d;
+  --dark-teal: #1b3a4b;
+  --medium-teal: #144552;
+  --light-teal: #006466;
+}
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-image: linear-gradient(to bottom right, var(--dark-teal), #32afb1);
+}
+
+main {
+  padding: 36px;
+}
+
+.main-wrapper {
+  margin: 3rem;
+  border: 0.7rem solid var(--dark-purple);
+  border-radius: 1.5rem;
+  background-color: var(--light-purple);
+  background-image: linear-gradient(to bottom, var(--light-purple), #bd61bd);
+  color: white;
+}
+
+/** MAIN TEXT **/
+.main-text {
+  text-align: center;
+  padding: 0 2rem;
+}
+
+/**SEARCH FORM*/
+
+/* .form {
+  display: grid;
+  padding: 3rem;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+} */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 3rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: 1rem;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.city-div,
+.checkout-div,
+.checkin-div,
+.budget-div {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 1005px) {
+  .city-div,
+  .checkin-div {
+    align-self: flex-end;
+  }
+
+  .budget-div,
+  .checkout-div {
+    align-self: flex-start;
+  }
+}
+
+.search-input,
+.date-input {
+  margin-top: 0.3rem;
+  width: 100%;
+  height: 2.1rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid gray;
+  max-width: 100%;
+  flex: 2;
+}
+
+@media (max-width: 718px) {
+  .row {
+    display: block;
+  }
+  .form {
+    padding: 1rem;
+  }
+}
+
+button {
+  padding: 0.7rem 3rem;
+  border-radius: 5px;
+  border: 2px solid var(--dark-teal);
+  cursor: pointer;
+  background-color: var(--light-teal);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+button:hover {
+  background-color: #32afb1;
+  color: black;
+}
