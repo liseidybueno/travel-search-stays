@@ -15,6 +15,10 @@ router.get("/api/listings/bookingcom", async (req, res) => {
 
   const hotels = [];
 
+  $("[data-testid=property-card-unit-configuration]").each((index, element) => {
+    console.log("***element", $(element).find("span.bb58e7a787").text());
+  });
+
   $("[data-testid=property-card]").each((index, element) => {
     const listing = {
       source: "Booking.com",
@@ -25,12 +29,24 @@ router.get("/api/listings/bookingcom", async (req, res) => {
         .find("[data-testid=property-card-desktop-single-image]")
         .attr("href"),
       img: $(element).find("[data-testid=image]").attr("src"),
-      roomType: $(element).find("span.df597226dd").text(),
+      roomType: $(element)
+        .find("div.abf093bdfe")
+        .find("span.df597226dd")
+        .first()
+        .text(),
       unitConfiguration: $(element)
         .find("[data-testid=property-card-unit-configuration]")
+        .find("span.bb58e7a787")
+        .first()
         .text(),
-      bedType: $(element).find("div.cb5b4b68a4").find("div.abf093bdfe").text(),
+      bedType: $(element)
+        .find("[data-testid=property-card-unit-configuration]")
+        .find("div.cb5b4b68a4")
+        .find("div.abf093bdfe")
+        .text(),
     };
+
+    console.log("***listing", listing);
     hotels.push(listing);
   });
 
