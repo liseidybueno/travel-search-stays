@@ -8,10 +8,6 @@
   --light-teal: #006466;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   background-image: linear-gradient(to bottom right, var(--dark-teal), #32afb1);
@@ -37,13 +33,6 @@ main {
 }
 
 /**SEARCH FORM*/
-
-/* .form {
-  display: grid;
-  padding: 3rem;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-} */
 
 .form {
   display: flex;
@@ -127,4 +116,57 @@ button {
 button:hover {
   background-color: #32afb1;
   color: black;
+}
+
+/** RESULTS **/
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(45%, 2fr));
+  grid-gap: 16px;
+  padding: 1rem;
+}
+
+.listing {
+  border: 0.2rem solid var(--dark-purple);
+  padding: 1rem;
+  border-radius: 10px;
+  align-items: center;
+  /* display: flex;
+  flex-direction: row; */
+  background-color: #bd61bd;
+  color: #312244;
+  text-align: center;
+}
+
+.listing--name-image {
+  margin-top: 0;
+  width: 100%;
+}
+.listing-name {
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.listing-image {
+  width: 80%;
+  border-radius: 10px;
+}
+
+.listing-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.listing-info {
+  justify-self: center;
+  margin-left: 1rem;
+  align-self: center;
+}
+
+.listing-price {
+  margin: 0;
 }

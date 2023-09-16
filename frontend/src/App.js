@@ -1,5 +1,5 @@
 import React from "react";
-import Booking from "./components/Booking.js";
+import Booking from "./components/Results.js";
 import SearchForm from "./components/SearchForm.js";
 import formatDate from "./utils.js";
 
