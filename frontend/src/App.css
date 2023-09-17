@@ -114,7 +114,7 @@ h1 {
 button {
   padding: 0.7rem 3rem;
   border-radius: 5px;
-  border: 2px solid var(--dark-teal);
+  border: 2px solid #000000;
   cursor: pointer;
   background-color: var(--light-teal);
   color: white;
@@ -122,11 +122,13 @@ button {
   letter-spacing: 0.1rem;
   font-size: 1rem;
   margin: 1rem;
+  box-shadow: 2px 2px 5px #151515;
 }
 
 button:hover {
   background-color: #32afb1;
   color: black;
+  box-shadow: inset 2px 2px 5px #3e3e3e;
 }
 
 /** RESULTS **/
@@ -176,6 +178,7 @@ button:hover {
 .listing-row {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .listing-info {
@@ -186,4 +189,23 @@ button:hover {
 
 .listing-price {
   margin: 0;
+}
+
+.listing-source {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.listing-roomType {
+  margin: 0.25rem;
+}
+
+.listing-url {
+  color: #dc90dc;
+  text-transform: uppercase;
+}
+
+.listing-url:hover {
+  color: #74a6a7;
+  cursor: pointer;
 }

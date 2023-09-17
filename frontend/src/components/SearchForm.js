@@ -43,7 +43,7 @@ export default function SearchForm(props) {
       return !prevLoading;
     });
     props.setSubmitted((prevSubmitted) => {
-      return !prevSubmitted;
+      return true;
     });
     fetch(
       `http://localhost:8000/api/listings/?city=${props.searchData.city}&budget=${props.searchData.budget}&checkin=${props.searchData.checkinFormatted}&checkout=${props.searchData.checkoutFormatted}`,
