@@ -5,10 +5,6 @@ const router = express.Router();
 router.get("/api/listings/airbnb", async (req, res) => {
   const { city, budget, checkin, checkout } = req.query;
 
-  console.log("***checkin", checkin);
-  console.log("****checkout", checkout);
-  console.log("****city", city);
-
   const options = {
     method: "GET",
     url: "https://airbnb13.p.rapidapi.com/search-location",
@@ -24,8 +20,8 @@ router.get("/api/listings/airbnb", async (req, res) => {
       currency: "USD",
     },
     headers: {
-      "X-RapidAPI-Key": "47bc00c936msh21813d19de3c7e0p12c834jsn644689ad087b",
-      "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
+      "X-RapidAPI-Key": process.env.RAPID_API_KEY,
+      "X-RapidAPI-Host": process.env.RAPID_API_HOST,
     },
   };
 

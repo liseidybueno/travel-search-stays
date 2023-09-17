@@ -3,6 +3,7 @@ import cors from "cors";
 import listings from "./routes/listings.js";
 import bookingcomListings from "./routes/bookingcomlistings.js";
 import airbnbListings from "./routes/airbnblistings.js";
+import "dotenv/config";
 
 const app = express();
 
@@ -18,7 +19,6 @@ app.listen(PORT, () => {
 });
 
 //TO DO:
-//add hostelworld listings
 //add sort by price algorithm
 //add rating, and add sort by rating algorithm
 //add expedia listings to booking lists
