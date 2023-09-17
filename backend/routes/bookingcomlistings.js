@@ -15,9 +15,11 @@ router.get("/api/listings/bookingcom", async (req, res) => {
 
   const hotels = [];
 
-  $("[data-testid=property-card-unit-configuration]").each((index, element) => {
-    console.log("***element", $(element).find("span.bb58e7a787").text());
-  });
+  $("[data-testid=property-card-unit-configuration]").each(
+    (_index, element) => {
+      console.log("***element", $(element).find("span.bb58e7a787").text());
+    }
+  );
 
   $("[data-testid=property-card]").each((index, element) => {
     const listing = {
