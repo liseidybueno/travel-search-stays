@@ -39,6 +39,12 @@ export default function SearchForm(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    props.setLoading((prevLoading) => {
+      return !prevLoading;
+    });
+    props.setSubmitted((prevSubmitted) => {
+      return !prevSubmitted;
+    });
     fetch(
       `http://localhost:8000/api/listings/?city=${props.searchData.city}&budget=${props.searchData.budget}&checkin=${props.searchData.checkinFormatted}&checkout=${props.searchData.checkoutFormatted}`,
       {
@@ -48,7 +54,7 @@ export default function SearchForm(props) {
       .then((response) => response.json())
       .then((result) => {
         props.setBookingResults(result);
-        props.setSubmitted(true);
+        props.setLoading(false);
       });
   }
 

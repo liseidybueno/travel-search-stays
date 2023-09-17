@@ -2,6 +2,7 @@ import React from "react";
 import Booking from "./components/Results.js";
 import SearchForm from "./components/SearchForm.js";
 import formatDate from "./utils.js";
+import { DotWave } from "@uiball/loaders";
 
 function App() {
   const today = new Date();
@@ -21,6 +22,8 @@ function App() {
 
   const [bookingResults, setBookingResults] = React.useState([]);
 
+  const [loading, setLoading] = React.useState(false);
+
   return (
     <main>
       <div className="main-wrapper">
@@ -31,15 +34,23 @@ function App() {
             from Booking.com and Airbnb!
           </p>
         </div>
-
         <SearchForm
           searchData={searchData}
           setSearchData={setSearchData}
           submitted={submitted}
           setSubmitted={setSubmitted}
           setBookingResults={setBookingResults}
+          loading={loading}
+          setLoading={setLoading}
         />
-        {submitted && <Booking data={searchData} results={bookingResults} />}
+        {loading && (
+          <div className="loader">
+            <DotWave size={47} speed={1} color="white" />
+          </div>
+        )}
+        {!loading && submitted && (
+          <Booking data={searchData} results={bookingResults} />
+        )}
       </div>
     </main>
   );

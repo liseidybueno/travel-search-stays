@@ -31,6 +31,12 @@ h1 {
   color: white;
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
 /** MAIN TEXT **/
 .main-text {
   text-align: center;
@@ -133,13 +139,19 @@ button:hover {
 }
 
 .listing {
-  border: 0.2rem solid var(--dark-purple);
+  border: 0.2rem solid #0d1e27;
   padding: 1rem;
   border-radius: 10px;
   align-items: center;
-  background-color: #bd61bd;
-  color: #312244;
+  background-color: var(--light-teal);
+  background-image: linear-gradient(
+    to top,
+    var(--medium-teal),
+    var(--light-teal)
+  );
+  color: #ffffff;
   text-align: center;
+  box-shadow: inset 4px 4px 4px 1px var(--dark-teal), 2px 2px 5px 1px #09161c;
 }
 
 .listing--name-image {
@@ -155,7 +167,9 @@ button:hover {
 }
 
 .listing-image {
-  width: 80%;
+  width: 50%;
+  max-height: 200px;
+  object-fit: cover;
   border-radius: 10px;
 }
 
