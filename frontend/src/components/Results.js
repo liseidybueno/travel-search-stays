@@ -30,7 +30,7 @@ export default function Booking(props) {
                     )}
                   </span>
                   <p className="listing-bedType">{listing.bedType}</p>
-                  <a className="listing-url" href={listing.url}>
+                  <a className="listing-url" href={listing.url} target="_blank">
                     View listing
                   </a>
                 </div>
