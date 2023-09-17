@@ -9,17 +9,13 @@ router.get("/api/listings/bookingcom", async (req, res) => {
   const city = data.city;
   const budget = data.budget;
 
-  const url = `https://www.booking.com/searchresults.en-gb.html?ss=${city}&dest_type=city&checkin=${data.checkin}&checkout=${data.checkout}&group_adults=${data.numAdults}&group_children=${data.numChildren}&nflt=price%3DUSD-min-${budget}-1`;
+  const url =
+    `https://www.booking.com/searchresults.en-gb.html?ss=${city}&dest_type=city&checkin=${data.checkin}&checkout=${data.checkout}` +
+    `&group_adults=${data.numAdults}&group_children=${data.numChildren}&selected_currency=${data.currency}&nflt=price%3DUSD-min-${budget}-1`;
   const response = await axios.get(url);
   const $ = cheerio.load(response.data);
 
   const hotels = [];
-
-  $("[data-testid=property-card-unit-configuration]").each(
-    (_index, element) => {
-      console.log("***element", $(element).find("span.bb58e7a787").text());
-    }
-  );
 
   $("[data-testid=property-card]").each((index, element) => {
     const listing = {
@@ -48,7 +44,6 @@ router.get("/api/listings/bookingcom", async (req, res) => {
         .text(),
     };
 
-    console.log("***listing", listing);
     hotels.push(listing);
   });
 

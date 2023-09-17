@@ -46,7 +46,9 @@ export default function SearchForm(props) {
       return true;
     });
     fetch(
-      `http://localhost:8000/api/listings/?city=${props.searchData.city}&budget=${props.searchData.budget}&checkin=${props.searchData.checkinFormatted}&checkout=${props.searchData.checkoutFormatted}`,
+      `http://localhost:8000/api/listings/?city=${props.searchData.city}&budget=${props.searchData.budget}` +
+        `&checkin=${props.searchData.checkinFormatted}&checkout=${props.searchData.checkoutFormatted}` +
+        `&currency=${props.searchData.currency}`,
       {
         method: "GET",
       }
@@ -104,7 +106,7 @@ export default function SearchForm(props) {
         name="currency"
       >
         {allCurrencies.map((currency) => {
-          return <option>{currency}</option>;
+          return <option key={currency}>{currency}</option>;
         })}
       </select>
     );

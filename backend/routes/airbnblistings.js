@@ -3,7 +3,8 @@ import axios from "axios";
 const router = express.Router();
 
 router.get("/api/listings/airbnb", async (req, res) => {
-  const { city, budget, checkin, checkout, numAdults, numChildren } = req.query;
+  const { city, budget, checkin, checkout, numAdults, numChildren, currency } =
+    req.query;
 
   const options = {
     method: "GET",
@@ -17,7 +18,7 @@ router.get("/api/listings/airbnb", async (req, res) => {
       infants: "0",
       pets: "0",
       page: "1",
-      currency: "USD",
+      currency: currency,
     },
     headers: {
       "X-RapidAPI-Key": process.env.RAPID_API_KEY,

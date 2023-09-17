@@ -12,11 +12,12 @@ router.get("/api/listings", async (req, res) => {
   const checkout = data.checkout;
   const numAdults = data.numAdults;
   const numChildren = data.numChildren;
+  const currency = data.currency;
 
   //Booking.com Results
   const bookingsURL =
     `http://localhost:8000/api/listings/bookingcom/?city=${city}&budget=${budget}` +
-    `&checkin=${checkin}&checkout=${checkout}&numadults=${numAdults}$numchildren=${numChildren}`;
+    `&checkin=${checkin}&checkout=${checkout}&numadults=${numAdults}&numchildren=${numChildren}&currency=${currency}`;
   const bookingsResponse = await axios.get(bookingsURL);
   const bookingsListings = bookingsResponse.data.results;
 
