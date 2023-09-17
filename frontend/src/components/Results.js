@@ -6,7 +6,7 @@ export default function Booking(props) {
 
   return (
     <div>
-      <h1>Results</h1>
+      <h1 className="results-h1">Browse Results</h1>
       <div className="results">
         {listings &&
           listings.map((listing) => (
@@ -19,6 +19,7 @@ export default function Booking(props) {
                   alt={listing.name}
                 />
                 <div className="listing-info">
+                  <p className="listing-source">Source: {listing.source}</p>
                   <p className="listing-price">
                     Price per night: {listing.price}
                   </p>

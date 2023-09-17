@@ -1,6 +1,6 @@
 # What I'm Building
 
-As a budget traveler, I often want to see all my accommodation options in one place. I'm not overly picky about where I stay, but I've spent so much time with 7 tabs open trying to search for somewhere that fits my budget and needs at the time. I want to make it easier to see all your options in one place with your budget, so I'm developing a small, simple app that pulls data from popular hotel and rental booking sites like Booking.com, Airbnb, and HostelWorld so that you can see more options all in one place.
+As a budget traveler, I often want to see all my accommodation options in one place. I'm not overly picky about where I stay, but I've spent so much time with 7 tabs open trying to search for somewhere that fits my budget and needs at the time. I want to make it easier to see all your options in one place with your budget, so I'm developing a small, simple app that pulls data from popular hotel and rental booking sites like Booking.com and Airbnb so that you can see more options all in one place.
 
 # How I'm Building
 
@@ -21,7 +21,6 @@ Please keep in mind that this is currently a work in progress! I will be updatin
 
 ## Future Plans:
 
-- Add data from HostelWorld
 - Add ratings
 - Add queries: number of people
 - Add filters: accommodation type (hotels, hostels, airbnbs), rating, and source

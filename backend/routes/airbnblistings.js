@@ -1,5 +1,5 @@
-const express = require("express");
-const axios = require("axios");
+import express from "express";
+import axios from "axios";
 const router = express.Router();
 
 router.get("/api/listings/airbnb", async (req, res) => {
@@ -53,4 +53,4 @@ router.get("/api/listings/airbnb", async (req, res) => {
   res.json({ results: listings });
 });
 
-module.exports = router;
+export default router;

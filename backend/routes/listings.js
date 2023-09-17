@@ -1,6 +1,5 @@
-const express = require("express");
-const axios = require("axios");
-const cheerio = require("cheerio");
+import express from "express";
+import axios from "axios";
 const router = express.Router();
 
 //countains all listings route
@@ -28,4 +27,4 @@ router.get("/api/listings", async (req, res) => {
   res.json({ results: bookingsListings });
 });
 
-module.exports = router;
+export default router;

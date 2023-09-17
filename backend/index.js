@@ -1,8 +1,8 @@
-const express = require("express");
-const cors = require("cors");
-const listings = require("./routes/listings.js");
-const bookingcomListings = require("./routes/bookingcomlistings.js");
-const airbnbListings = require("./routes/airbnblistings.js");
+import express from "express";
+import cors from "cors";
+import listings from "./routes/listings.js";
+import bookingcomListings from "./routes/bookingcomlistings.js";
+import airbnbListings from "./routes/airbnblistings.js";
 
 const app = express();
 
@@ -17,7 +17,8 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-//TO DO: add airbnb listings to booking lists
+//TO DO:
+//add hostelworld listings
 //add sort by price algorithm
 //add rating, and add sort by rating algorithm
 //add expedia listings to booking lists

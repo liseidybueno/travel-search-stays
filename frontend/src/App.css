@@ -17,6 +17,11 @@ main {
   padding: 36px;
 }
 
+h1 {
+  font-family: Poppins;
+  text-align: center;
+}
+
 .main-wrapper {
   margin: 3rem;
   border: 0.7rem solid var(--dark-purple);
@@ -132,8 +137,6 @@ button:hover {
   padding: 1rem;
   border-radius: 10px;
   align-items: center;
-  /* display: flex;
-  flex-direction: row; */
   background-color: #bd61bd;
   color: #312244;
   text-align: center;
