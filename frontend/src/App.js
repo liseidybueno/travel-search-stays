@@ -17,8 +17,6 @@ function App() {
     checkoutFormatted: formatDate(tomorrow),
   });
 
-  console.log("***search data", searchData);
-
   const [submitted, setSubmitted] = React.useState(false);
 
   const [bookingResults, setBookingResults] = React.useState([]);
