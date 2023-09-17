@@ -3,7 +3,7 @@ import axios from "axios";
 const router = express.Router();
 
 router.get("/api/listings/airbnb", async (req, res) => {
-  const { city, budget, checkin, checkout, numPeople } = req.query;
+  const { city, budget, checkin, checkout, numAdults, numChildren } = req.query;
 
   const options = {
     method: "GET",
@@ -12,8 +12,8 @@ router.get("/api/listings/airbnb", async (req, res) => {
       location: city,
       checkin: checkin,
       checkout: checkout,
-      adults: numPeople,
-      children: "0",
+      adults: numAdults,
+      children: numChildren,
       infants: "0",
       pets: "0",
       page: "1",

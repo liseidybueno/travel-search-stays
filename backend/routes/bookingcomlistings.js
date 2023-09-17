@@ -8,11 +8,8 @@ router.get("/api/listings/bookingcom", async (req, res) => {
   const data = req.query;
   const city = data.city;
   const budget = data.budget;
-  const numPeople = data.numPeople;
-  // const checkin = data.checkin;
-  // const checkout = data.checkout;
 
-  const url = `https://www.booking.com/searchresults.en-gb.html?ss=${city}&dest_type=city&checkin=${data.checkin}&checkout=${data.checkout}&group_adults=${numPeople}&nflt=price%3DUSD-min-${budget}-1`;
+  const url = `https://www.booking.com/searchresults.en-gb.html?ss=${city}&dest_type=city&checkin=${data.checkin}&checkout=${data.checkout}&group_adults=${data.numAdults}&group_children=${data.numChildren}&nflt=price%3DUSD-min-${budget}-1`;
   const response = await axios.get(url);
   const $ = cheerio.load(response.data);
 
