@@ -58,6 +58,58 @@ export default function SearchForm(props) {
       });
   }
 
+  const allCurrencies = [
+    "USD",
+    "AUD",
+    "BRL",
+    "BGN",
+    "CAD",
+    "CLP",
+    "CNY",
+    "COP",
+    "CRC",
+    "CZK",
+    "DKK",
+    "AED",
+    "EUR",
+    "HKD",
+    "HUF",
+    "INR",
+    "IDR",
+    "ILS",
+    "JPY",
+    "MYR",
+    "MXN",
+    "TWD",
+    "NZD",
+    "NOK",
+    "PLN",
+    "GBP",
+    "RON",
+    "SAR",
+    "SGD",
+    "ZAR",
+    "SEK",
+    "CHF",
+    "THB",
+    "TRY",
+  ];
+
+  function Currencies() {
+    return (
+      <select
+        className="search-input"
+        value={props.searchData.currency}
+        onChange={handleChange}
+        name="currency"
+      >
+        {allCurrencies.map((currency) => {
+          return <option>{currency}</option>;
+        })}
+      </select>
+    );
+  }
+
   return (
     <div className="search-form">
       <form className="form" onSubmit={handleSubmit}>
@@ -89,14 +141,34 @@ export default function SearchForm(props) {
             </div>
           </div>
           <div className="column">
+            <div className="budget-div">
+              <label htmlFor="budget">Select your currency:</label>
+              <Currencies />
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="column">
             <div className="numpeople-div">
-              <label htmlFor="num-people">How many people?</label>
+              <label htmlFor="num-people">How many adults:</label>
               <input
                 className="search-input"
                 type="number"
                 onChange={handleChange}
-                name="numPeople"
-                value={props.searchData.numPeople}
+                name="numAdults"
+                value={props.searchData.numAdults}
+              ></input>
+            </div>
+          </div>
+          <div className="column">
+            <div className="numpeople-div">
+              <label htmlFor="num-people">How many children?</label>
+              <input
+                className="search-input"
+                type="number"
+                onChange={handleChange}
+                name="numChildren"
+                value={props.searchData.numChildren}
               ></input>
             </div>
           </div>

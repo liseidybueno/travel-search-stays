@@ -16,7 +16,9 @@ function App() {
     checkinFormatted: formatDate(today),
     checkout: tomorrow,
     checkoutFormatted: formatDate(tomorrow),
-    numPeople: 1,
+    numAdults: 1,
+    numChildren: 0,
+    currency: "USD",
   });
 
   const [submitted, setSubmitted] = React.useState(false);
