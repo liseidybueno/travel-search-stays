@@ -71,7 +71,8 @@ h1 {
 .city-div,
 .checkout-div,
 .checkin-div,
-.budget-div {
+.budget-div,
+.numpeople-div {
   display: flex;
   align-self: center;
   flex-direction: column;
@@ -85,7 +86,7 @@ h1 {
   }
 
   .budget-div,
-  .checkout-div {
+  .checkout-div .numepople-div {
     align-self: flex-start;
   }
 }

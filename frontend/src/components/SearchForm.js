@@ -88,6 +88,18 @@ export default function SearchForm(props) {
               ></input>
             </div>
           </div>
+          <div className="column">
+            <div className="numpeople-div">
+              <label htmlFor="num-people">How many people?</label>
+              <input
+                className="search-input"
+                type="number"
+                onChange={handleChange}
+                name="numPeople"
+                value={props.searchData.numPeople}
+              ></input>
+            </div>
+          </div>
         </div>
         <div className="row">
           <div className="column">

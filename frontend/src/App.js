@@ -16,6 +16,7 @@ function App() {
     checkinFormatted: formatDate(today),
     checkout: tomorrow,
     checkoutFormatted: formatDate(tomorrow),
+    numPeople: 1,
   });
 
   const [submitted, setSubmitted] = React.useState(false);
@@ -57,7 +58,3 @@ function App() {
 }
 
 export default App;
-
-//TO DO
-//add css/styling
-//add loading image
