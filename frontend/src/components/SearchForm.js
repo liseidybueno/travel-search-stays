@@ -42,7 +42,7 @@ export default function SearchForm(props) {
     props.setLoading((prevLoading) => {
       return !prevLoading;
     });
-    props.setSubmitted((prevSubmitted) => {
+    props.setSubmitted(() => {
       return true;
     });
     fetch(
@@ -59,8 +59,6 @@ export default function SearchForm(props) {
         props.setLoading(false);
       });
   }
-
-  function sortByPrice() {}
 
   const allCurrencies = [
     "USD",

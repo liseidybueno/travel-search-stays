@@ -31,24 +31,26 @@ router.get("/api/listings/airbnb", async (req, res) => {
   const response = await axios.request(options);
   const results = response.data.results;
 
-  results.forEach((item, index) => {
-    if (item.price.rate < budget) {
-      const listing = {
-        key: `airbnb+${index}`,
-        source: "Airbnb",
-        name: item.name,
-        url: item.url,
-        img: item.images[0],
-        price: item.price.rate,
-        roomType: item.type,
-        rating: item.rating * 2,
-      };
+  if (results !== undefined) {
+    results.forEach((item, index) => {
+      if (item.price.rate < budget) {
+        const listing = {
+          key: `airbnb+${index}`,
+          source: "Airbnb",
+          name: item.name,
+          url: item.url,
+          img: item.images[0],
+          price: item.price.rate,
+          roomType: item.type,
+          rating: item.rating * 2,
+        };
 
-      listings.push(listing);
-    }
-  });
+        listings.push(listing);
+      }
+    });
 
-  res.json({ results: listings });
+    res.json({ results: listings });
+  }
 });
 
 export default router;

@@ -6,21 +6,15 @@ export default function SortAndFilter(props) {
     props.setSort(event.target.value);
   }
 
-  function handleFilterByRatingChange(event) {
-    props.setFilterByRating(event.target.value);
-  }
-
-  function handleFilterBySourceChange(event) {
-    props.setFilterBySource(event.target.value);
-  }
-
   function sortListings(event) {
     event.preventDefault();
     const listings = props.results.results;
+
     if (props.sort === "Price (Low to High)") {
       const sortedListings = {
         results: listings.sort((a, b) => (a.price > b.price ? 1 : -1)),
       };
+
       props.setResults(() => sortedListings);
     } else if (props.sort === "Price (High to Low)") {
       const sortedListings = {
@@ -35,6 +29,40 @@ export default function SortAndFilter(props) {
     }
   }
 
+  function filterListings(checked, filterBySource) {
+    let filteredResults = [];
+    const formattedSource =
+      filterBySource === "bookingcom" ? "Booking.com" : "Airbnb";
+
+    if (!checked) {
+      const tempResults = props.filteredResults;
+      filteredResults = tempResults.filter(
+        (result) => result.source !== formattedSource
+      );
+      props.setFilteredResults(() => filteredResults);
+    } else if (checked) {
+      const tempResults = props.results.results;
+      tempResults.forEach((result) => {
+        if (result.source === formattedSource && checked) {
+          filteredResults.push(result);
+        }
+      });
+      props.setFilteredResults((prevFiltered) => [
+        ...prevFiltered,
+        ...filteredResults,
+      ]);
+    }
+  }
+
+  function handleFilterBySourceChange(event) {
+    const { name, checked } = event.target;
+    props.setFilteredBySource({
+      ...props.filteredBySource,
+      [name]: checked,
+    });
+    filterListings(checked, name);
+  }
+
   return (
     <div className="sort-and-filters">
       <form className="sort-form">
@@ -45,7 +73,9 @@ export default function SortAndFilter(props) {
             onChange={handleChangeSort}
             name="sortBy"
           >
-            <option value="">Sort by:</option>
+            <option value="" disabled={true}>
+              Sort by:
+            </option>
             <option key="lowToHigh">Price (Low to High)</option>
             <option key="highToLow">Price (High to Low)</option>
             <option key="rating">Rating</option>
@@ -56,7 +86,7 @@ export default function SortAndFilter(props) {
         </div>
       </form>
       <div className="filter-div">
-        <h4 className="filterby-text">Filter by:</h4>
+        {/* <h4 className="filterby-text">Filter by:</h4>
         <div className="filter-row">
           <fieldset className="rating-fieldset">
             <legend className="filter-legend">Rating:</legend>
@@ -103,45 +133,34 @@ export default function SortAndFilter(props) {
             <label htmlFor="rating7+">Decent: 6+</label>
             <br />
             <button
-              onClick={() => props.setFilterByRating("")}
+              onClick={clearRatingFilter}
               className="clear-filters-button"
             >
               Clear Filters
             </button>
-          </fieldset>
-          <fieldset className="source-fieldset">
-            <legend className="filter-legend">Source:</legend>
-            <input
-              type="radio"
-              id="bookingcom"
-              name="filterBySource"
-              value="bookingcom"
-              checked={props.filterBySource === "bookingcom"}
-              onChange={handleFilterBySourceChange}
-            />
-
-            <label htmlFor="rating7+">Booking.com</label>
-            <br />
-            <input
-              type="radio"
-              id="airbnb"
-              name="filterBySource"
-              value="airbnb"
-              checked={props.filterBySource === "airbnb"}
-              onChange={handleFilterBySourceChange}
-            />
-            <label htmlFor="rating7+">AirBnB</label>
-            <br />
-            <button
-              onClick={() => props.setFilterBySource("")}
-              className="clear-filters-button"
-            >
-              Clear Filters
-            </button>
-          </fieldset>
-        </div>
-        <button className="sort-button">Filter</button>
+          </fieldset> */}
+        <fieldset className="source-fieldset">
+          <legend className="filter-legend">Source:</legend>
+          <input
+            type="checkbox"
+            id="bookingcom"
+            checked={props.filteredBySource.bookingcom}
+            onChange={handleFilterBySourceChange}
+            name="bookingcom"
+          />
+          <label htmlFor="bookingcom">Booking.com</label>
+          <br />
+          <input
+            type="checkbox"
+            id="airbnb"
+            checked={props.filteredBySource.airbnb}
+            onChange={handleFilterBySourceChange}
+            name="airbnb"
+          />
+          <label htmlFor="airbnb">Airbnb</label>
+        </fieldset>
       </div>
     </div>
+    // </div>
   );
 }
