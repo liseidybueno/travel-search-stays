@@ -18,11 +18,15 @@ router.get("/api/listings/bookingcom", async (req, res) => {
   const hotels = [];
 
   $("[data-testid=property-card]").each((index, element) => {
+    const price = $(element)
+      .find("[data-testid=price-and-discounted-price]")
+      .text();
+
     const listing = {
       source: "Booking.com",
       key: `booking+${index}`,
       name: $(element).find("[data-testid=title]").text(),
-      price: $(element).find("[data-testid=price-and-discounted-price]").text(),
+      price: parseInt(price.split("$").pop()),
       url: $(element)
         .find("[data-testid=property-card-desktop-single-image]")
         .attr("href"),
@@ -42,6 +46,7 @@ router.get("/api/listings/bookingcom", async (req, res) => {
         .find("div.cb5b4b68a4")
         .find("div.abf093bdfe")
         .text(),
+      currency: data.currency,
     };
 
     hotels.push(listing);

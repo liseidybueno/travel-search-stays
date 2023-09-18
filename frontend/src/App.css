@@ -112,7 +112,7 @@ h1 {
   }
 }
 
-button {
+.submit-button {
   padding: 0.7rem 3rem;
   border-radius: 5px;
   border: 2px solid #000000;
@@ -126,7 +126,7 @@ button {
   box-shadow: 2px 2px 5px #151515;
 }
 
-button:hover {
+.submit-button:hover {
   background-color: #32afb1;
   color: black;
   box-shadow: inset 2px 2px 5px #3e3e3e;
@@ -209,4 +209,122 @@ button:hover {
 .listing-url:hover {
   color: #74a6a7;
   cursor: pointer;
+}
+
+/* SORT & FILTER */
+.select-input {
+  height: 1.8rem;
+  border-radius: 10px;
+}
+
+.sort-filter-form {
+  display: flex;
+  justify-content: center;
+}
+
+.sortBy-div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.sort-and-filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.sort-button {
+  margin-top: 1rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0.3rem 0;
+  background-color: var(--dark-teal);
+  box-shadow: 1px 1px 3px 1px #000000;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.sort-button:hover {
+  margin-top: 1rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0.3rem 0;
+  background-color: var(--light-teal);
+  box-shadow: 1px 1px 3px 1px #000000;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+
+.select-input {
+  padding: 0.2rem;
+}
+
+.filterBy {
+  margin: 0;
+}
+
+.filterby-text {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 300;
+  font-size: 1.25rem;
+  margin-left: 0.8rem;
+}
+
+.source-fieldset,
+.rating-fieldset {
+  margin-top: 1rem;
+  border: none;
+}
+
+.filter-row {
+  display: flex;
+  justify-content: center;
+}
+
+.filter-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.clear-filters-button {
+  margin-top: 0.5rem;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid var(--medium-teal);
+  padding: 0.2rem 0;
+  background-color: #32afb1;
+  color: var(--dark-teal);
+  box-shadow: 0.5px 0.5px 1px 0.5px var(--dark-teal);
+}
+
+@media (max-width: 718px) {
+  .sort-and-filters {
+    display: block;
+  }
+
+  .filter-div {
+    margin-top: 1rem;
+  }
+
+  .filterby-text {
+    text-align: center;
+  }
+
+  .filter-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .filterby-text {
+    margin-left: 0;
+  }
 }

@@ -1,12 +1,42 @@
 import React from "react";
 import "../App.css";
+import SortAndFilter from "./SortAndFilter";
 
-export default function Booking(props) {
+export default function Results(props) {
   const listings = props.results.results;
+
+  const [sort, setSort] = React.useState("");
+
+  const [filterByRating, setFilterByRating] = React.useState("");
+
+  const [filterBySource, setFilterBySource] = React.useState("");
+
+  // function sortByPriceLowToHigh(event) {
+  //   event.preventDefault();
+  //   const sortedListings = listings.sort((a, b) => {
+  //     const priceA = a.price.split("$").pop();
+  //     const priceB = b.price.split("$").pop();
+  //     return priceA - priceB;
+  //   });
+  //   console.log("****sorted", sortedListings);
+  //   props.setResults(() => [sortedListings]);
+  // }
 
   return (
     <div>
       <h1 className="results-h1">Browse Results</h1>
+      <SortAndFilter
+        sort={sort}
+        setSort={setSort}
+        filterByRating={filterByRating}
+        setFilterByRating={setFilterByRating}
+        filterBySource={filterBySource}
+        setFilterBySource={setFilterBySource}
+        // sortByPriceLowToHigh={sortByPriceLowToHigh}
+        results={props.results}
+        setResults={props.setResults}
+        submitted={props.submitted}
+      />
       <div className="results">
         {listings &&
           listings.map((listing) => (
@@ -21,7 +51,7 @@ export default function Booking(props) {
                 <div className="listing-info">
                   <p className="listing-source">Source: {listing.source}</p>
                   <p className="listing-price">
-                    Price per night: {listing.price}
+                    Price per night: {listing.currency} ${listing.price}
                   </p>
                   <p className="listing-roomType">{listing.roomType}</p>
                   <span className="listing-unitConfiguration">

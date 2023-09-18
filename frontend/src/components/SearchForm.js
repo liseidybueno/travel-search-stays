@@ -55,10 +55,12 @@ export default function SearchForm(props) {
     )
       .then((response) => response.json())
       .then((result) => {
-        props.setBookingResults(result);
+        props.setResults(result);
         props.setLoading(false);
       });
   }
+
+  function sortByPrice() {}
 
   const allCurrencies = [
     "USD",
@@ -205,7 +207,7 @@ export default function SearchForm(props) {
             </div>
           </div>
         </div>
-        <button>Submit</button>
+        <button className="submit-button">Submit</button>
       </form>
     </div>
   );

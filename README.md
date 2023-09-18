@@ -22,7 +22,6 @@ Please keep in mind that this is currently a work in progress! I will be updatin
 ## Future Plans:
 
 - Add ratings
-- Add queries: number of people
 - Add filters: accommodation type (hotels, hostels, airbnbs), rating, and source
 - Add sort by price
 - Add sort by rating

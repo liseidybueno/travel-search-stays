@@ -1,5 +1,5 @@
 import React from "react";
-import Booking from "./components/Results.js";
+import Results from "./components/Results.js";
 import SearchForm from "./components/SearchForm.js";
 import formatDate from "./utils.js";
 import { DotWave } from "@uiball/loaders";
@@ -23,7 +23,7 @@ function App() {
 
   const [submitted, setSubmitted] = React.useState(false);
 
-  const [bookingResults, setBookingResults] = React.useState([]);
+  const [results, setResults] = React.useState([]);
 
   const [loading, setLoading] = React.useState(false);
 
@@ -42,7 +42,7 @@ function App() {
           setSearchData={setSearchData}
           submitted={submitted}
           setSubmitted={setSubmitted}
-          setBookingResults={setBookingResults}
+          setResults={setResults}
           loading={loading}
           setLoading={setLoading}
         />
@@ -52,7 +52,12 @@ function App() {
           </div>
         )}
         {!loading && submitted && (
-          <Booking data={searchData} results={bookingResults} />
+          <Results
+            data={searchData}
+            results={results}
+            setResults={setResults}
+            submitted={submitted}
+          />
         )}
       </div>
     </main>

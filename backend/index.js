@@ -21,7 +21,6 @@ app.listen(PORT, () => {
 //TO DO:
 //add sort by price algorithm
 //add rating, and add sort by rating algorithm
-//add expedia listings to booking lists
 //refactor code to make neater and more readable
 //add filter algorithm to filter by room type (apartment/house, hotel, hostel)
 //add filter algorithm to filter by rating
