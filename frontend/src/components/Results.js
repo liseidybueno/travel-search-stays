@@ -22,6 +22,44 @@ export default function Results(props) {
   //   props.setResults(() => [sortedListings]);
   // }
 
+  const getRatingText = (rating) => {
+    if (rating >= 9) {
+      return (
+        <div className="rating-div">
+          <span class="rating-text">Amazing</span>{" "}
+          <span class="rating">{rating}</span>
+        </div>
+      );
+    } else if (rating >= 8.0) {
+      return (
+        <div className="rating-div">
+          <span class="rating-text">Great</span>{" "}
+          <span class="rating">{rating}</span>
+        </div>
+      );
+    } else if (rating >= 8) {
+      return (
+        <div className="rating-div">
+          <span class="rating-text">Good</span>{" "}
+          <span class="rating">{rating}</span>
+        </div>
+      );
+    } else if (rating >= 7) {
+      return (
+        <div className="rating-div">
+          <span class="rating-text">Decent</span>{" "}
+          <span class="rating">{rating}</span>
+        </div>
+      );
+    } else {
+      return (
+        <div className="rating-div">
+          <span class="rating">{rating}</span>
+        </div>
+      );
+    }
+  };
+
   return (
     <div>
       <h1 className="results-h1">Browse Results</h1>
@@ -32,7 +70,6 @@ export default function Results(props) {
         setFilterByRating={setFilterByRating}
         filterBySource={filterBySource}
         setFilterBySource={setFilterBySource}
-        // sortByPriceLowToHigh={sortByPriceLowToHigh}
         results={props.results}
         setResults={props.setResults}
         submitted={props.submitted}
@@ -41,7 +78,11 @@ export default function Results(props) {
         {listings &&
           listings.map((listing) => (
             <div className="listing" key={listing.key}>
-              <h4 className="listing-name">{listing.name}</h4>
+              <div className="listing-name-rating">
+                <h4 className="listing-name">{listing.name}</h4>
+                {listing.rating ? getRatingText(listing.rating) : ""}
+              </div>
+
               <div className="listing-row">
                 <img
                   className="listing-image"

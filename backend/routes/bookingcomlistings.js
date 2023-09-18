@@ -22,6 +22,11 @@ router.get("/api/listings/bookingcom", async (req, res) => {
       .find("[data-testid=price-and-discounted-price]")
       .text();
 
+    const rating = $(element)
+      .find("[data-testid=review-score]")
+      .find("div.d86cee9b25")
+      .text();
+
     const listing = {
       source: "Booking.com",
       key: `booking+${index}`,
@@ -46,6 +51,7 @@ router.get("/api/listings/bookingcom", async (req, res) => {
         .find("div.cb5b4b68a4")
         .find("div.abf093bdfe")
         .text(),
+      rating: parseFloat(rating),
       currency: data.currency,
     };
 

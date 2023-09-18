@@ -169,6 +169,31 @@ h1 {
   margin-bottom: 0.5rem;
 }
 
+.listing-name-rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.rating-text {
+  flex: 1;
+  text-transform: uppercase;
+}
+
+.rating-div {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+}
+.rating {
+  border: 2px solid var(--dark-purple);
+  border-radius: 5px;
+  padding: 0.3rem 0.5rem;
+  background-color: var(--light-purple);
+  color: #ffffff;
+  height: 1.3rem;
+}
 .listing-image {
   width: 50%;
   max-height: 200px;
@@ -306,6 +331,13 @@ h1 {
 }
 
 @media (max-width: 718px) {
+  .results {
+    display: block;
+  }
+
+  .listing {
+    margin: 2rem 0;
+  }
   .sort-and-filters {
     display: block;
   }

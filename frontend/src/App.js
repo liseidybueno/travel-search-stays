@@ -19,6 +19,7 @@ function App() {
     numAdults: 1,
     numChildren: 0,
     currency: "USD",
+    rating: 0,
   });
 
   const [submitted, setSubmitted] = React.useState(false);
