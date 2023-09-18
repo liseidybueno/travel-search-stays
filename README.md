@@ -21,8 +21,5 @@ Please keep in mind that this is currently a work in progress! I will be updatin
 
 ## Future Plans:
 
-- Add ratings
 - Add filters: accommodation type (hotels, hostels, airbnbs), rating, and source
-- Add sort by price
-- Add sort by rating
 - Add user registration and allow users to save listings
