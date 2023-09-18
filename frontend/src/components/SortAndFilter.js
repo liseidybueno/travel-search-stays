@@ -27,26 +27,13 @@ export default function SortAndFilter(props) {
         results: listings.sort((a, b) => (a.price < b.price ? 1 : -1)),
       };
       props.setResults(() => sortedListings);
-    } else if (props.sort === "Ratings") {
-      console.log("*****ratings");
+    } else if (props.sort === "Rating") {
+      const sortedListings = {
+        results: listings.sort((a, b) => (a.rating < b.rating ? 1 : -1)),
+      };
+      props.setResults(() => sortedListings);
     }
   }
-
-  // function sortByPriceLowToHigh(event) {
-  //   event.preventDefault();
-  //   const listings = props.results.results;
-  //   console.log("****checkkkk", listings);
-  //   const sortedListings = listings.sort((a, b) => {
-  //     const priceA = a.price.split("$").pop();
-  //     const priceB = b.price.split("$").pop();
-  //     return priceA - priceB;
-  //   });
-  //   console.log("****sorted", sortedListings);
-  //   props.setResults((prevListings) => [
-  //     ...prevListings.results,
-  //     sortedListings,
-  //   ]);
-  // }
 
   return (
     <div className="sort-and-filters">

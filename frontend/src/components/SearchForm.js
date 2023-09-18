@@ -48,7 +48,7 @@ export default function SearchForm(props) {
     fetch(
       `http://localhost:8000/api/listings/?city=${props.searchData.city}&budget=${props.searchData.budget}` +
         `&checkin=${props.searchData.checkinFormatted}&checkout=${props.searchData.checkoutFormatted}` +
-        `&currency=${props.searchData.currency}`,
+        `&numAdults=${props.searchData.numAdults}&numChildren=${props.searchData.numChildren}&currency=${props.searchData.currency}`,
       {
         method: "GET",
       }

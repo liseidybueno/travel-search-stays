@@ -11,50 +11,39 @@ export default function Results(props) {
 
   const [filterBySource, setFilterBySource] = React.useState("");
 
-  // function sortByPriceLowToHigh(event) {
-  //   event.preventDefault();
-  //   const sortedListings = listings.sort((a, b) => {
-  //     const priceA = a.price.split("$").pop();
-  //     const priceB = b.price.split("$").pop();
-  //     return priceA - priceB;
-  //   });
-  //   console.log("****sorted", sortedListings);
-  //   props.setResults(() => [sortedListings]);
-  // }
-
   const getRatingText = (rating) => {
     if (rating >= 9) {
       return (
         <div className="rating-div">
-          <span class="rating-text">Amazing</span>{" "}
-          <span class="rating">{rating}</span>
+          <span className="rating-text">Amazing</span>{" "}
+          <span className="rating">{rating}</span>
         </div>
       );
     } else if (rating >= 8.0) {
       return (
         <div className="rating-div">
-          <span class="rating-text">Great</span>{" "}
-          <span class="rating">{rating}</span>
+          <span className="rating-text">Great</span>{" "}
+          <span className="rating">{rating}</span>
         </div>
       );
     } else if (rating >= 8) {
       return (
         <div className="rating-div">
-          <span class="rating-text">Good</span>{" "}
-          <span class="rating">{rating}</span>
+          <span className="rating-text">Good</span>{" "}
+          <span className="rating">{rating}</span>
         </div>
       );
     } else if (rating >= 7) {
       return (
         <div className="rating-div">
-          <span class="rating-text">Decent</span>{" "}
-          <span class="rating">{rating}</span>
+          <span className="rating-text">Decent</span>{" "}
+          <span className="rating">{rating}</span>
         </div>
       );
     } else {
       return (
         <div className="rating-div">
-          <span class="rating">{rating}</span>
+          <span className="rating">{rating}</span>
         </div>
       );
     }

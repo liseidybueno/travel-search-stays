@@ -3,7 +3,7 @@ import axios from "axios";
 const router = express.Router();
 
 router.get("/api/listings/airbnb", async (req, res) => {
-  const { city, budget, checkin, checkout, numAdults, numChildren, currency } =
+  const { city, budget, checkin, checkout, numadults, numchildren, currency } =
     req.query;
 
   const options = {
@@ -13,8 +13,8 @@ router.get("/api/listings/airbnb", async (req, res) => {
       location: city,
       checkin: checkin,
       checkout: checkout,
-      adults: numAdults,
-      children: numChildren,
+      adults: numadults,
+      children: numchildren,
       infants: "0",
       pets: "0",
       page: "1",
@@ -41,6 +41,7 @@ router.get("/api/listings/airbnb", async (req, res) => {
         img: item.images[0],
         price: item.price.rate,
         roomType: item.type,
+        rating: item.rating * 2,
       };
 
       listings.push(listing);

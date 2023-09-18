@@ -142,10 +142,12 @@ h1 {
 }
 
 .listing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border: 0.2rem solid #0d1e27;
   padding: 1rem;
   border-radius: 10px;
-  align-items: center;
   background-color: var(--light-teal);
   background-image: linear-gradient(
     to top,
@@ -161,18 +163,21 @@ h1 {
   margin-top: 0;
   width: 100%;
 }
+
 .listing-name {
   font-family: Poppins;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-top: 0;
   margin-bottom: 0.5rem;
+  text-align: left;
 }
 
 .listing-name-rating {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  gap: 0.8rem;
 }
 
 .rating-text {
@@ -194,6 +199,13 @@ h1 {
   color: #ffffff;
   height: 1.3rem;
 }
+
+.listing-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
 .listing-image {
   width: 50%;
   max-height: 200px;
@@ -201,15 +213,8 @@ h1 {
   border-radius: 10px;
 }
 
-.listing-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
 .listing-info {
   justify-self: center;
-  margin-left: 1rem;
   align-self: center;
 }
 
@@ -330,13 +335,22 @@ h1 {
   box-shadow: 0.5px 0.5px 1px 0.5px var(--dark-teal);
 }
 
-@media (max-width: 718px) {
+@media (max-width: 992px) {
   .results {
     display: block;
   }
 
   .listing {
     margin: 2rem 0;
+  }
+
+  .listing-name {
+    text-align: center;
+    width: 100%;
+  }
+
+  .listing-row {
+    justify-content: center;
   }
   .sort-and-filters {
     display: block;

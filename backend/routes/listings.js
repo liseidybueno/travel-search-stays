@@ -22,13 +22,29 @@ router.get("/api/listings", async (req, res) => {
   const bookingsListings = bookingsResponse.data.results;
 
   //Airbnb Results
-  // const airbnbURL = `http://localhost:8000/api/listings/airbnb/?city=${city}&budget=${budget}&checkin=${checkin}&checkout=${checkout}`;
-  // const airbnbResponse = await axios.get(airbnbURL);
-  // const airbnbListings = airbnbResponse.data.results;
+  const airbnbURL =
+    `http://localhost:8000/api/listings/airbnb/?city=${city}&budget=${budget}` +
+    `&checkin=${checkin}&checkout=${checkout}&numadults=${numAdults}&numchildren=${numChildren}&currency=${currency}`;
+  const airbnbResponse = await axios.get(airbnbURL);
+  const airbnbListings = airbnbResponse.data.results;
 
-  // const allListings = [...bookingsListings, ...airbnbListings];
+  const allListings = [...bookingsListings, ...airbnbListings];
 
-  res.json({ results: bookingsListings });
+  const shuffle = ([...array]) => {
+    let i = 0;
+    let j = 0;
+    let temp = null;
+
+    for (i = array.length - 1; i > 0; i -= 1) {
+      j = Math.floor(Math.random() * (i + 1));
+      temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  };
+
+  res.json({ results: shuffle(allListings) });
 });
 
 export default router;
