@@ -4,6 +4,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import formatDate from "../utils.js";
 
 export default function SearchForm(props) {
+  const environment = process.env.REACT_APP_NODE_ENV;
+  const localApiUrl = process.env.REACT_APP_LOCAL_API_URL;
+  const productionApiUrl = "production";
+
+  const url = environment === "development" ? localApiUrl : productionApiUrl;
+
   function handleChange(event) {
     props.setSearchData((prevFormData) => {
       return {
@@ -37,6 +43,8 @@ export default function SearchForm(props) {
     });
   }
 
+  console.log("***url", url);
+
   function handleSubmit(event) {
     event.preventDefault();
     props.setLoading((prevLoading) => {
@@ -46,7 +54,7 @@ export default function SearchForm(props) {
       return true;
     });
     fetch(
-      `http://localhost:8000/api/listings/?city=${props.searchData.city}&budget=${props.searchData.budget}` +
+      `${url}/api/listings/?city=${props.searchData.city}&budget=${props.searchData.budget}` +
         `&checkin=${props.searchData.checkinFormatted}&checkout=${props.searchData.checkoutFormatted}` +
         `&numAdults=${props.searchData.numAdults}&numChildren=${props.searchData.numChildren}&currency=${props.searchData.currency}`,
       {

@@ -14,16 +14,21 @@ router.get("/api/listings", async (req, res) => {
   const numChildren = data.numChildren;
   const currency = data.currency;
 
+  const environment = process.env.NODE_ENV;
+  const localApiUrl = process.env.LOCAL_API_URL;
+  const productionApiUrl = process.env.LOCAL_API_URL;
+
+  const url = environment === "development" ? localApiUrl : productionApiUrl;
   //Booking.com Results
   const bookingsURL =
-    `http://localhost:8000/api/listings/bookingcom/?city=${city}&budget=${budget}` +
+    `${url}/api/listings/bookingcom/?city=${city}&budget=${budget}` +
     `&checkin=${checkin}&checkout=${checkout}&numadults=${numAdults}&numchildren=${numChildren}&currency=${currency}`;
   const bookingsResponse = await axios.get(bookingsURL);
   const bookingsListings = bookingsResponse.data.results;
 
   //Airbnb Results
   const airbnbURL =
-    `http://localhost:8000/api/listings/airbnb/?city=${city}&budget=${budget}` +
+    `${url}/api/listings/airbnb/?city=${city}&budget=${budget}` +
     `&checkin=${checkin}&checkout=${checkout}&numadults=${numAdults}&numchildren=${numChildren}&currency=${currency}`;
   const airbnbResponse = await axios.get(airbnbURL);
   const airbnbListings = airbnbResponse.data.results;
