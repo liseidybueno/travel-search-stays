@@ -21,5 +21,4 @@ Please keep in mind that this is currently a work in progress! I will be updatin
 
 ## Future Plans:
 
-- Add filters: accommodation type (hotels, hostels, airbnbs), rating, and source
 - Add user registration and allow users to save listings
