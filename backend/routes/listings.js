@@ -1,6 +1,7 @@
 import express from "express";
 import axios from "axios";
 const router = express.Router();
+import "dotenv/config.js";
 
 //countains all listings route
 router.get("/api/listings", async (req, res) => {

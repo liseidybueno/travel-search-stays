@@ -12,6 +12,8 @@ app.use(listings);
 app.use(bookingcomListings);
 app.use(airbnbListings);
 
+console.log("**env", process.env.NODE_ENV);
+
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
