@@ -14,53 +14,46 @@ export default function Results(props) {
 
   const [filteredResults, setFilteredResults] = React.useState([]);
 
-  const filtered = filteredBySource.bookingcom || filteredBySource.airbnb;
-
-  function filterListings() {
-    console.log("****props.filteredbysource", filteredBySource);
-  }
+  const isFilteredBySource =
+    filteredBySource.bookingcom || filteredBySource.airbnb;
 
   const getRatingText = (rating) => {
     if (rating >= 9) {
       return (
         <div className="rating-div">
           <span className="rating-text">Amazing</span>{" "}
-          <span className="rating">{rating}</span>
+          <span className="rating">{Math.round(rating * 10) / 10}</span>
         </div>
       );
     } else if (rating >= 8.0) {
       return (
         <div className="rating-div">
           <span className="rating-text">Great</span>{" "}
-          <span className="rating">{rating}</span>
+          <span className="rating">{Math.round(rating * 10) / 10}</span>
         </div>
       );
     } else if (rating >= 8) {
       return (
         <div className="rating-div">
           <span className="rating-text">Good</span>{" "}
-          <span className="rating">{rating}</span>
+          <span className="rating">{Math.round(rating * 10) / 10}</span>
         </div>
       );
     } else if (rating >= 7) {
       return (
         <div className="rating-div">
           <span className="rating-text">Decent</span>{" "}
-          <span className="rating">{rating}</span>
+          <span className="rating">{Math.round(rating * 10) / 10}</span>
         </div>
       );
     } else {
       return (
         <div className="rating-div">
-          <span className="rating">{rating}</span>
+          <span className="rating">{Math.round(rating * 10) / 10}</span>
         </div>
       );
     }
   };
-
-  console.log("****is filtered", filtered);
-
-  console.log("****see filtered on results page", filteredResults);
 
   return (
     <div>
@@ -73,12 +66,12 @@ export default function Results(props) {
         submitted={props.submitted}
         setFilteredBySource={setFilteredBySource}
         filteredBySource={filteredBySource}
-        filterListings={filterListings}
-        setFilteredResults={setFilteredResults}
         filteredResults={filteredResults}
+        setFilteredResults={setFilteredResults}
+        searchData={props.searchData}
       />
       <div className="results">
-        {!filtered &&
+        {!isFilteredBySource &&
           listings &&
           listings.map((listing) => (
             <div className="listing" key={listing.key}>
@@ -115,7 +108,7 @@ export default function Results(props) {
       </div>
 
       <div className="results">
-        {filtered &&
+        {isFilteredBySource &&
           filteredResults &&
           filteredResults.map((listing) => (
             <div className="listing" key={listing.key}>
