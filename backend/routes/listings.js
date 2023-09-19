@@ -17,7 +17,7 @@ router.get("/api/listings", async (req, res) => {
 
   const environment = process.env.NODE_ENV;
   const localApiUrl = process.env.LOCAL_API_URL;
-  const productionApiUrl = process.env.LOCAL_API_URL;
+  const productionApiUrl = process.env.PRODUCTION_API_URL;
 
   const url = environment === "development" ? localApiUrl : productionApiUrl;
   //Booking.com Results
